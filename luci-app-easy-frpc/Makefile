@@ -18,8 +18,8 @@ PKG_LICENSE_FILESL:=/LICENSE
 PKG_MAINTAINER:=https://github.com/DongyangHu/OpenFrp	
 
 PKG_BUILD_DEPENDS:=golang/host
-GO_PKG:=https://github.com/fatedier/frp
-#GO_PKG_BUILD_PKG:=https://github.com/fatedier/frp/cmd/...
+GO_PKG:=github.com/fatedier/frp
+GO_PKG_BUILD_PKG:=github.com/fatedier/frp/cmd/...
 GO_PKG_LDFLAGS:=-s -w
 
 
@@ -43,10 +43,10 @@ define Build/Compile
 endef
 
 define Package/luci-app-easy-frpc/install
-	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/$(1) $(1)/usr/bin/
+	$$(call GoPackage/Package/Install/Bin,$$(PKG_INSTALL_DIR))
+	$$(INSTALL_DIR) $$(1)/usr/bin
+	$$(INSTALL_BIN) $$(PKG_INSTALL_DIR)/usr/bin/$(1) $$(1)/usr/bin/
 endef
 
-$(eval $(call GoPackage,$(PKG_NAME)))
+$(eval $(call GoBinPackage,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)))
