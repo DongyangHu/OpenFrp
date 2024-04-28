@@ -30,7 +30,7 @@ define Package/luci-app-easy-frpc
   CATEGORY:=LuCI
   SUBMENU:=3. Applications
   TITLE:=All in one for frpc, include Luci and executable file
-  DEPENDS:=$$(GO_ARCH_DEPENDS)
+  DEPENDS:=$(GO_ARCH_DEPENDS)
   URL:=https://github.com/fatedier/frp
 endef
 
@@ -43,10 +43,10 @@ define Build/Compile
 endef
 
 define Package/luci-app-easy-frpc/install
-	$$(call GoPackage/Package/Install/Bin,$$(PKG_INSTALL_DIR))
-	$$(INSTALL_DIR) $$(1)/usr/bin
-	$$(INSTALL_BIN) $$(PKG_INSTALL_DIR)/usr/bin/$(1) $$(1)/usr/bin/
+	$(call GoPackage/Package/Install/Bin,$(GO_PKG_BUILD_BIN_DIR))
+	$(INSTALL_DIR) $(1)/usr/bin
+	$(INSTALL_BIN) $(GO_PKG_BUILD_BIN_DIR)/usr/bin/$(1) $(1)/usr/bin/
 endef
 
-$(eval $(call GoBinPackage,$(PKG_NAME)))
+$(eval $(call GoPackage,$(PKG_NAME)))
 $(eval $(call BuildPackage,$(PKG_NAME)))
