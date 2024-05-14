@@ -1,0 +1,21 @@
+{
+    "luci-app-easy-frpc": {
+      "description": "Grant UCI and RPC access to LuCI app easy-frpc",
+      "read": {
+        "ubus": {
+          "luci.easy-frpc": [
+            "get_sample1",
+            "get_sample2"
+          ]
+        },
+        "uci": [
+          "easy-frpc"
+        ]
+      },
+      "write": {
+        "uci": [
+          "easy-frpc"
+        ]
+      }
+    }
+  }

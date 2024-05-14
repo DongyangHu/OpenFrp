@@ -1,0 +1,21 @@
+{
+    "admin/easy-frpc/": {
+      "title": "Example",
+      "order": 60,
+      "action": {
+        "type": "firstchild"
+      },
+      "depends": {
+        "acl": [ "luci-app-easy-frpc" ]
+      }
+    },
+  
+    "admin/easy-frpc/html": {
+      "title": "HTML Page",
+      "order": 1,
+      "action": {
+        "type": "view",
+        "path": "easy-frpc/htmlview"
+      }
+    }
+  }

@@ -1,4 +1,11 @@
 include $(TOPDIR)/rules.mk
+include $(TOPDIR)/rules.mk
+
+LUCI_TITLE:=LuCI example app for js based luci
+LUCI_DEPENDS:=+luci-base
+LUCI_PKGARCH:=all
+
+include ../../luci.mk
 
 # Custom Values START
 FRP_VERSION:=0.57.0

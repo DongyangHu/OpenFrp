@@ -1,0 +1,9 @@
+#!/bin/sh
+
+touch /etc/config/easy-frpc
+uci set easy-frpc.first=first
+uci set easy-frpc.second=second
+uci set easy-frpc.third=third
+uci commit
+
+return 0
